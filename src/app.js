@@ -8,7 +8,7 @@ const app = express();
 dotenv.config();
 
 // configuraciones basicas
-app.set("port", process.env.PORT || 4001);
+app.set("port", process.env.PORT || 4000);
 app.use(express.json());
 app.use(morgan("dev"));
 

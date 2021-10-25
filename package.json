@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js --exec babel-node"
+    "serve": "babel-node src",
+    "dev": "nodemon --exec yarn run serve"
   },
   "keywords": [],
   "author": "",
