@@ -1,3 +1,4 @@
+
 import Thesis from "./Tesis.model";
 
 
@@ -38,10 +39,10 @@ const createNewThesis = async (req, res) => {
 }
 
 const searchByQuery = async (req, res) => {
-    const { tags, name, year, thesisId, school } = req.query;
+    const { tags, name, year, thesisId, school, status, resume } = req.query;
+    const data = []
     try {
 
-        const data = []
 
         if(tags) {
             const r = await Thesis.find({
@@ -99,7 +100,28 @@ const searchByQuery = async (req, res) => {
             });
         }
 
+        if(status) {
+            const y = Number(status);
+            const r = await Thesis.find({
+                "status": y
+            });
+            r.forEach(doc => {
+                data.push(doc);
+            })
+        }
 
+        if(resume) {
+            const r = await Thesis.find({
+                "resume": {
+                    "$regex": resume,
+                    "$options": "i"
+                }
+            })
+            r.forEach(doc => {
+                data.push(doc);
+            });
+        }
+        
         res.json({ success: true, data })
     } catch (error) {
         res.status(400).json({ success: false, msg: error.message })

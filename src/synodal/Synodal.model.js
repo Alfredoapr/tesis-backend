@@ -5,7 +5,8 @@ const{ Schema } = mongoose;
 const synodalSchema = new Schema({
     idSynodal: String,
     name: String,
-    email:String
+    email:String,
+    tesis: [String]
 });
 
 const Synodal = mongoose.model("Synodal", synodalSchema);
