@@ -38,7 +38,7 @@ const createNewThesis = async (req, res) => {
 }
 
 const searchByQuery = async (req, res) => {
-    const { tags, name } = req.query;
+    const { tags, name, year, thesisId, school } = req.query;
     try {
 
         const data = []
@@ -57,6 +57,40 @@ const searchByQuery = async (req, res) => {
             const r = await Thesis.find({
                 "name": {
                     "$regex": n[0],
+                    "$options": "i"
+                }
+            })
+            r.forEach(doc => {
+                data.push(doc);
+            });
+        }
+
+        if(year) {
+            const y = Number(year);
+            const r = await Thesis.find({
+                "year": y
+            });
+            r.forEach(doc => {
+                data.push(doc);
+            })
+        }
+
+        if(thesisId) {
+            const r = await Thesis.find({
+                "thesisId": {
+                    "$regex": thesisId,
+                    "$options": "i"
+                }
+            })
+            r.forEach(doc => {
+                data.push(doc);
+            });
+        }
+
+        if(school) {
+            const r = await Thesis.find({
+                "school": {
+                    "$regex": school,
                     "$options": "i"
                 }
             })
