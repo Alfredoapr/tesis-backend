@@ -9,13 +9,13 @@ const app = express();
 
 dotenv.config();
 
-// configuraciones basicas
+// Basic config
 app.use(cors());
 app.set("port", process.env.PORT || 4000);
 app.use(express.json());
 app.use(morgan("dev"));
 
-// Rutas a utilizar
+// Routes
 app.use("/thesis", thesisRouter);
 
 
