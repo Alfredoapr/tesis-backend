@@ -1,8 +1,9 @@
 import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import thesisRouter from "./tesis/Tesis.router";
 import cors from "cors";
+import thesisRouter from "./tesis/Tesis.router";
+
 
 const app = express();
 

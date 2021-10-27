@@ -128,6 +128,10 @@ const searchByQuery = async (req, res) => {
     }
 }
 
+const uploadPdf = async (req, res) => {
+    
+}
+
 export {
     getAllThesis,
     createNewThesis,
