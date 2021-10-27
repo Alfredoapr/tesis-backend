@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dpcumentacion</title>
+    <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura-vader.css" type="text/css">
+</head>
+<body>
+    <h1>Documentacion</h1>
+
+    <h2>API</h2>
+    <pre>https://tesis-server-escom.herokuapp.com/</pre>
+
+    <h2>Tesis</h2>
+    <p>Descripcion de Tesis</p>
+    <h3>Modelo</h3>
+    <pre>
+const thesisSchema = new Schema({
+    thesisId: String,
+    name: String,
+    year: Number,
+    tags: [String],
+    school: String,
+    resume: String,
+    pdfRoute: String,
+    status: Number,
+    statusMessage: String,
+    synodals: [String],
+    director: String,
+    authors: [String]
+});
+    </pre>
+    <h3>Rutas</h3>
+    
+    <h5>Lista de tesis</h5>
+    <h6>Descripcion</h6>
+    <p>Devuelve la lista completa de todas las tesis existentes</p>
+    <h6>URL</h6>
+    <pre>GET /thesis</pre>
+
+    <h5>Crear una tesis</h5>
+    <h6>Descripcion</h6>
+    <p>Crea una nueva tesis con los datos enviados y la devuelve</p>
+    <h6>URL</h6>
+    <pre>
+POST /thesis
+{
+    thesisId: String,
+    name: String,
+    year: Number,
+    tags: [String],
+    school: String,
+    resume: String,
+    pdfRoute: String,
+    status: Number,
+    statusMessage: String,
+    synodals: [String],
+    director: String,
+    authors: [String]
+}
+    </pre>
+
+    <h5>Buscar tesis por query</h5>
+    <h6>Descripcion</h6>
+    <p>Devuelve una lista con las tesis encontradas que coincidan con los parametros enviados</p>
+    <h6>URL</h6>
+    <pre>
+        GET /thesis/search
+
+        query {
+            tags=
+            name=
+            year=
+            thesisId=
+            school=
+            status=
+            resume=
+        }
+    </pre>
+    <h6>Ejemplo</h6>
+    <pre>GET /thesis/search?tags=ia,redes&year=2021</pre>
+</body>
+</html>
