@@ -15,10 +15,9 @@ app.use(cors());
 app.set("port", process.env.PORT || 4000);
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(express.static("public"));
 
 // Routes
-app.get("/", (req, res) => res.sendFile(path.resolve(__dirname, "static/index.html")));
+app.use('/', express.static(__dirname + '/public'));
 app.use("/thesis", thesisRouter);
 
 

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "start": "npm run build && node ./dist",
-    "dev": "nodemon src/index.js --exec babel-node"
+    "dev": "nodemon src/index.js --exec babel-node",
+    "deploy": "git push && git push heroku"
   },
   "keywords": [],
   "author": "",
