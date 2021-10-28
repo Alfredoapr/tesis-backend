@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir dist",
-    "start": "npm run build && node ./dist",
+    "start": "npm run build && mkdir dist/public && cp src/public/index.html dist/public/ && node ./dist",
     "dev": "nodemon src/index.js --exec babel-node",
     "deploy": "git push && git push heroku"
   },

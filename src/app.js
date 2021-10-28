@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 // Routes
-app.use('/', express.static(__dirname + '/public'));
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "public/index.html")))
 app.use("/thesis", thesisRouter);
 
 
