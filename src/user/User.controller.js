@@ -30,7 +30,7 @@ const login = async (req, res) => {
     try {
         const { boleta, password } = req.body;
         if (boleta && password) {
-            const user = await User.findOne({ boleta});
+            const user = await User.findOne({ boleta });
             if(user && user.password == password) {
                 const {boleta, name, email, type} = user;
                 res.status(200).json({sucess: true, user: {boleta, name, email, type} });

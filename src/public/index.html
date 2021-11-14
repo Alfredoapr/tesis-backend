@@ -81,5 +81,55 @@ POST /thesis
     </pre>
     <h6>Ejemplo</h6>
     <pre>GET /thesis/search?tags=ia,redes&year=2021</pre>
+
+/////////////////////////////
+<h2>Usuario</h2>
+    <p>Descripcion de Usuario</p>
+    <h3>Modelo</h3>
+    <pre>
+const userSchema = new Schema({
+    boleta: String,
+    name: String,
+    email:String,
+    type: String,
+    password: String
+});
+    </pre>
+    <h3>Rutas</h3>
+    
+    <h5>Lista de usuario</h5>
+    <h6>Descripcion</h6>
+    <p>Devuelve la lista completa de todos los usuarios existentes</p>
+    <h6>URL</h6>
+    <pre>GET /user</pre>
+
+    <h5>Registrar un usuario</h5>
+    <h6>Descripcion</h6>
+    <p>Crea un nuevo usuario con los datos enviados y lo devuelve</p>
+    <h6>URL</h6>
+    <pre>
+POST /user
+{
+    boleta: String,
+    name: String,
+    email:String,
+    type: String,
+    password: String
+}
+    </pre>
+
+    <h5>Login del usuario</h5>
+    <h6>Descripcion</h6>
+    <p>Devuelve boleta, name, email y type que pertenezcan al password y boleta enviados </p>
+    <h6>URL</h6>
+    <pre>
+        POST /user/login
+
+         {
+            boleta: String,
+            password: String
+        }
+    </pre>
+
 </body>
 </html>
