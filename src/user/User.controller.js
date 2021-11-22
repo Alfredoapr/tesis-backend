@@ -45,6 +45,18 @@ const login = async (req, res) => {
     }
 }
 
+
+/*const findAndUpdate = async (req, res) => {
+    try {
+        //const {boleta,password} = req.body;
+        const user = await User.hash(req.)
+
+
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+}*/
+
 export {
     getAllUsers,
     createNewUser,

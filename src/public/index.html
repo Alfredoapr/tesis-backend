@@ -62,6 +62,15 @@ POST /thesis
 }
     </pre>
 
+    <p>En donde status puede tomar los siguientes valores:</p> <br>
+    <ul>
+        <li> -1: Necesita corrección por parte del estudiante, este estado lo indica el director. </li>
+        <li> 0: En espera de aprobación por parte del director. </li>
+        <li> 1: Aprobación del director; en espera de aprobación por parte de gestión. </li>
+        <li> 2: Aprobación por parte de gestión. </li>
+        <li> -2: Rechazo por parte de gestión. Se va al estado '-1' </li>
+    </ul>
+
     <h5>Buscar tesis por query</h5>
     <h6>Descripcion</h6>
     <p>Devuelve una lista con las tesis encontradas que coincidan con los parametros enviados</p>
@@ -82,7 +91,22 @@ POST /thesis
     <h6>Ejemplo</h6>
     <pre>GET /thesis/search?tags=ia,redes&year=2021</pre>
 
-/////////////////////////////
+
+    <h5>Ageragr archivo PDF a Cloudinary</h5>
+    <h6>Descripcion</h6>
+    <p>Devuelve la url del archivo pdf almacenado en cloudinary.</p>
+    <h6>URL</h6>
+    <pre>POST /thesis/upload</pre>
+    
+    <h6>Instrucciones</h6>
+        <ol>
+            <li>Seleccionar POST como método HTTP</li>
+            <li>Utilizar la ruta https://tesis-server-escom.herokuapp.com/thesis/upload</li>
+            <li>Indicar que el tipo de contenido será: multipart/form-data</li>
+            <li>Enviarlo</li>
+            <li>Recibir url del pdf </li>       
+        </ol>    
+
 <h2>Usuario</h2>
     <p>Descripcion de Usuario</p>
     <h3>Modelo</h3>

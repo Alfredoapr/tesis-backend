@@ -19,11 +19,14 @@
     "@babel/node": "^7.15.8",
     "@babel/plugin-transform-runtime": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
+    "cloudinary": "^1.27.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "formidable": "^2.0.1",
     "mongoose": "^6.0.9",
     "morgan": "^1.10.0",
+    "multer": "^1.4.3",
     "nodemon": "^2.0.14"
   }
 }
