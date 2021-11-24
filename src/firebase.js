@@ -1,17 +1,30 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getStorage } from "firebase/storage";
+require("dotenv").config();
 
-// Your web app's Firebase configuration
+const {
+  FIREBASE_APIKEY,
+  FIREBASE_AUTHDOMAIN,
+  FIREBASE_PROJECTID,
+  FIREBASE_STORAGEBUCKET,
+  FIREBASE_MESSAGINGSENDERID,
+  FIREBASE_APPID,
+} = process.env;
+
+console.log(process.env);
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBot4qnvrHrjGV_JvbUozIzdFAO6VtvjPE",
-  authDomain: "tesis-4a222.firebaseapp.com",
-  projectId: "tesis-4a222",
-  storageBucket: "tesis-4a222.appspot.com",
-  messagingSenderId: "343636294944",
-  appId: "1:343636294944:web:11e683e126ea3b98222b45",
+  apiKey: FIREBASE_APIKEY,
+  authDomain: FIREBASE_AUTHDOMAIN,
+  projectId: FIREBASE_PROJECTID,
+  storageBucket: FIREBASE_STORAGEBUCKET,
+  messagingSenderId: FIREBASE_MESSAGINGSENDERID,
+  appId: FIREBASE_APPID,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+const storage = getStorage(app);
+
+export default storage;
