@@ -1,7 +1,7 @@
 
 import Thesis from "./Tesis.model";
 import cloudinary from "cloudinary";
-import {config} from "../config";
+require('dotenv').config();
 
 
 const getAllThesis = async (req, res) => {
@@ -132,17 +132,14 @@ const searchByQuery = async (req, res) => {
 
   // CLOUDINARY 
   cloudinary.config({
-    cloud_name: config.CLOUD_NAME, 
-    api_key: config.API_KEY, 
-    api_secret: config.API_SECRET,
+    cloud_name: process.env.CLOUD_NAME, 
+    api_key: process.env.API_KEY, 
+    api_secret: process.env.API_SECRET,
   });
-  console.log(config);
-  console.log(process.env.API_KEY);  
 
 const uploadPdf = async (req, res) => {
     console.log(req.file);
         try {
-        console.log("Erroooooooor");
         const  uploaded = await cloudinary.v2.uploader.upload(req.file.path);
         const FILE_URL = uploaded.url;
         res.json({ success: true, uploaded, url: FILE_URL });
