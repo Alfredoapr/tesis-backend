@@ -143,14 +143,6 @@ const uploadPdf = async (req, res) => {
   const url = await getDownloadURL(snap.ref);
 
   res.json({ success: true, url });
-
-  `   try {
-        const  uploaded = await cloudinary.v2.uploader.upload(req.file.path);
-        const FILE_URL = uploaded.url;
-        res.json({ success: true, uploaded, url: FILE_URL });
-    } catch (error) {
-        res.status(400).json({ success: false, msg: error.message })
-    }`;
 };
 
 export { getAllThesis, createNewThesis, searchByQuery, uploadPdf };

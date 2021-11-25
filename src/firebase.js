@@ -11,8 +11,6 @@ const {
   FIREBASE_APPID,
 } = process.env;
 
-console.log(process.env);
-
 const firebaseConfig = {
   apiKey: FIREBASE_APIKEY,
   authDomain: FIREBASE_AUTHDOMAIN,
